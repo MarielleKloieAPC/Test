@@ -120,7 +120,7 @@ Vue.createApp({
             address.value = { street: "", city: "", postalCode: "" };
             serviceOptions.value = [];
             message.value = "";
-            agreeToTerms.value = false;
+            agreeTerms.value = false;
         }
 
         return {
