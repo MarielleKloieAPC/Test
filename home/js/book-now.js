@@ -14,7 +14,7 @@ Vue.createApp({
         let address = Vue.ref({ street: "", city: "", postalCode: "" }); 
         let serviceOptions = Vue.ref([]); 
         let message = Vue.ref(""); 
-        let agreeToTerms = Vue.ref(false);
+        let acceptTerms = Vue.ref(false);
 
         let services = {
             Cleaning: {
@@ -71,7 +71,7 @@ Vue.createApp({
 
         async function submitForm() {
             
-            if (!agreeToTerms.value) {
+            if (!acceptTerms.value) {
                 alert("You must agree to the terms and conditions before submitting.");
                 return;
             }
@@ -120,7 +120,7 @@ Vue.createApp({
             address.value = { street: "", city: "", postalCode: "" };
             serviceOptions.value = [];
             message.value = "";
-            agreeTerms.value = false;
+            acceptTerms.value = false;
         }
 
         return {
@@ -138,7 +138,7 @@ Vue.createApp({
             address,
             serviceOptions,
             message,
-            agreeTerms,
+            acceptTerms,
             updateServiceNames,
             updateServiceOptions,
             calculateTotal,

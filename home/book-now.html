@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Now</title>
-    <link rel="stylesheet" href="css/book-now.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
@@ -44,7 +44,7 @@
                         <option v-for="option in serviceOptions" :value="option">{{ option }}</option>
                     </select>
 
-                    <label>Number of Pair</label>
+                    <label>Number of Pairs</label>
                     <input type="number" v-model.number="numItems" min="1" @input="calculateTotal" required>
 
                     <label>Total Payment</label>
@@ -105,8 +105,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
-    <script src="js/book-now.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
