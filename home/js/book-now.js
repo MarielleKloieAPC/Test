@@ -4,6 +4,7 @@ Vue.createApp({
         let lastName = Vue.ref("");
         let contactNumber = Vue.ref("");
         let email = Vue.ref("");
+        let shoeBrandModel = Vue.ref("");
         let serviceType = Vue.ref("");
         let serviceName = Vue.ref("");
         let numItems = Vue.ref(1);
@@ -14,7 +15,7 @@ Vue.createApp({
         let serviceOptions = Vue.ref([]);
         let message = Vue.ref("");
         let agreeToTerms = Vue.ref(false);
-        let shoeBrandModel = Vue.ref(""); // add shoeBrandModel
+        
 
         let services = {
             Cleaning: {
@@ -83,6 +84,7 @@ Vue.createApp({
                     last_name: lastName.value,
                     contact_number: contactNumber.value,
                     email: email.value,
+                    shoe_brand_model: shoeBrandModel.value,
                     service_type: serviceType.value,
                     service_name: serviceName.value,
                     num_items: numItems.value,
@@ -92,7 +94,7 @@ Vue.createApp({
                     address_street: address.value.street,
                     address_city: address.value.city,
                     address_postal_code: address.value.postalCode,
-                    shoe_brand_model: shoeBrandModel.value,
+                    
                 }
             ]);
 
@@ -110,6 +112,7 @@ Vue.createApp({
             lastName.value = "";
             contactNumber.value = "";
             email.value = "";
+            shoeBrandModel.value = "";
             serviceType.value = "";
             serviceName.value = "";
             numItems.value = 1;
@@ -120,7 +123,7 @@ Vue.createApp({
             serviceOptions.value = [];
             message.value = "";
             agreeToTerms.value = false;
-            shoeBrandModel.value = "";
+            
         }
 
         return {
@@ -128,6 +131,7 @@ Vue.createApp({
             lastName,
             contactNumber,
             email,
+            shoeBrandModel,
             serviceType,
             serviceName,
             numItems,
@@ -138,7 +142,6 @@ Vue.createApp({
             serviceOptions,
             message,
             agreeToTerms,
-            shoeBrandModel,
             updateServiceNames,
             updateServiceOptions,
             calculateTotal,
