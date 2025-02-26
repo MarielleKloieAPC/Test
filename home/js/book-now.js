@@ -4,17 +4,17 @@ Vue.createApp({
         let lastName = Vue.ref("");
         let contactNumber = Vue.ref("");
         let email = Vue.ref("");
-        let serviceType = Vue.ref(""); 
-        let serviceName = Vue.ref(""); 
+        let serviceType = Vue.ref("");
+        let serviceName = Vue.ref("");
         let numItems = Vue.ref(1);
-        let shoeBrandModel = Vue.ref("");
         let totalPayment = Vue.ref("₱0");
         let paymentMethod = Vue.ref("");
         let deliveryType = Vue.ref("Store Pickup");
-        let address = Vue.ref({ street: "", city: "", postalCode: "" }); 
-        let serviceOptions = Vue.ref([]); 
-        let message = Vue.ref(""); 
-        let acceptTerms = Vue.ref(false);
+        let address = Vue.reactive({ street: "", city: "", postalCode: "" });
+        let serviceOptions = Vue.ref([]);
+        let message = Vue.ref("");
+        let agreeToTerms = Vue.ref(false);
+        let shoeBrandModel = Vue.ref(""); // add shoeBrandModel
 
         let services = {
             Cleaning: {
@@ -68,35 +68,35 @@ Vue.createApp({
             }
         }
 
-
         async function submitForm() {
-            
-            if (!acceptTerms.value) {
+
+            if (!agreeToTerms.value) {
                 alert("You must agree to the terms and conditions before submitting.");
                 return;
             }
-            
+
             let supabase = supabase.createClient("YOUR_SUPABASE_URL", "YOUR_SUPABASE_ANON_KEY");
 
-            let bookingData = {
-                first_name: firstName.value,
-                last_name: lastName.value,
-                contact_number: contactNumber.value,
-                email: email.value,
-                shoe_brand_model: shoeBrandModel.value || "N/A",
-                service_type: serviceType.value,
-                service_name: serviceName.value,
-                num_items: numItems.value,
-                total_payment: totalPayment.value,
-                payment_method: paymentMethod.value,
-                delivery_type: deliveryType.value,
-                address_street: address.value.street || "N/A",
-                address_city: address.value.city || "N/A",
-                address_postal_code: address.value.postalCode || "0000"
-            };
+            let { error } = await supabase.from("bookings").insert([
+                {
+                    first_name: firstName.value,
+                    last_name: lastName.value,
+                    contact_number: contactNumber.value,
+                    email: email.value,
+                    service_type: serviceType.value,
+                    service_name: serviceName.value,
+                    num_items: numItems.value,
+                    total_payment: totalPayment.value,
+                    payment_method: paymentMethod.value,
+                    delivery_type: deliveryType.value,
+                    address_street: address.value.street,
+                    address_city: address.value.city,
+                    address_postal_code: address.value.postalCode,
+                    shoe_brand_model: shoeBrandModel.value,
+                }
+            ]);
 
-            let { error } = await supabase.from("bookings").insert([bookingData]);
-
+            
             if (error) {
                 alert("Error booking service: " + error.message);
             } else {
@@ -110,7 +110,6 @@ Vue.createApp({
             lastName.value = "";
             contactNumber.value = "";
             email.value = "";
-            shoeBrandModel.value = "";
             serviceType.value = "";
             serviceName.value = "";
             numItems.value = 1;
@@ -120,7 +119,8 @@ Vue.createApp({
             address.value = { street: "", city: "", postalCode: "" };
             serviceOptions.value = [];
             message.value = "";
-            acceptTerms.value = false;
+            agreeToTerms.value = false;
+            shoeBrandModel.value = "";
         }
 
         return {
@@ -128,7 +128,6 @@ Vue.createApp({
             lastName,
             contactNumber,
             email,
-            shoeBrandModel,
             serviceType,
             serviceName,
             numItems,
@@ -138,7 +137,8 @@ Vue.createApp({
             address,
             serviceOptions,
             message,
-            acceptTerms,
+            agreeToTerms,
+            shoeBrandModel,
             updateServiceNames,
             updateServiceOptions,
             calculateTotal,
@@ -146,4 +146,3 @@ Vue.createApp({
         };
     }
 }).mount("#app");
- 

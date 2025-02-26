@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Now</title>
-    <link rel="stylesheet" href="css/book-now.css">
+    <link rel="stylesheet" href="book-now.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
@@ -95,8 +95,8 @@
                     </div>
                     
                     <div class="terms-container">
-                        <input type="checkbox" id="acceptTerms" v-model="acceptTerms" required>
-                        <label for="acceptTerms">I agree to the Terms and Conditions</label>
+                        <input type="checkbox" id="agreeToTerms" v-model="agreeToTerms" required>
+                        <label for="agreeToTerms">I agree to the Terms and Conditions</label>
                     </div>
 
                     <button type="submit">Submit Booking</button>
@@ -105,8 +105,8 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
-    <script src="js/book-now.js"></script>
+    <script src="script.js"></script>
+    <script src="book-now.js"></script>
 
 </body>
 </html>
