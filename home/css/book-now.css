@@ -47,7 +47,7 @@ body {
     font-size: 14px;
     padding: 10px;
     max-height: 150px; /* Prevents terms from taking too much space */
-    overflow-y: auto; /* Scrollable terms */
+    overflow-y: auto;
 }
 
 .terms-box p {
