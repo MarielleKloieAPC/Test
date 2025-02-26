@@ -64,7 +64,6 @@
                         <option value="Door to Door">Door to Door</option>
                     </select>
 
-                    <!-- Address Form (Only Shows for Door to Door) -->
                     <div v-if="deliveryType === 'Door to Door'">
                         <h4>Enter Delivery Address</h4>
                         <label>Street:</label>
@@ -77,11 +76,9 @@
                         <input type="text" v-model="address.postalCode" required />
                     </div>
 
-                    <!-- Message/Inquiry -->
                     <label>Message / Inquiry (Optional)</label>
                     <input v-model="message" placeholder="Leave a message...">
 
-                    <!-- Terms & Conditions Checkbox -->
                     <div class="terms-box-container">
                         <h3>Terms and Conditions :</h3>
                         <div class="terms-box">

@@ -1,9 +1,7 @@
 const { createApp, ref, reactive } = Vue;
 
-
 createApp({
-    setup() {
-        
+    setup() {        
         const firstName = ref("");
         const lastName = ref("");
         const contactNumber = ref("");
@@ -38,8 +36,6 @@ createApp({
                 "Partial Reglue": 400
             }
         };
-        
-        
 
         const serviceOptions = ref([]);
 
@@ -65,8 +61,7 @@ createApp({
             let prices = {
                 Cleaning: {
                     "Deep Clean": 350,
-                    "Sole Unyellowing": 750
-                    
+                    "Sole Unyellowing": 750                    
                 },
                 
                 Restoration: {
@@ -76,17 +71,13 @@ createApp({
                     "Sole Replacement": 3500,
                     "Sole Stitch": 300,
                     "Partial Repaint": 300,
-                    "Partial Reglue": 400
-                    
-                }
-                
+                    "Partial Reglue": 400                    
+                }                
             };
             
             if (serviceType.value && serviceName.value && prices[serviceType.value] && prices[serviceType.value][serviceName.value]) {
                 totalPayment.value = prices[serviceType.value][serviceName.value] * numItems.value;
-                
-            }
-            
+            }            
         }
 
 
@@ -113,7 +104,6 @@ createApp({
 
         function submitForm() {
             alert("Booking submitted successfully!");
-
             resetForm();
         }
 
