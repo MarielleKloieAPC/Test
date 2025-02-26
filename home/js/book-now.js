@@ -138,7 +138,7 @@ Vue.createApp({
             address,
             serviceOptions,
             message,
-            agreeToTerms,
+            agreeTerms,
             updateServiceNames,
             updateServiceOptions,
             calculateTotal,
