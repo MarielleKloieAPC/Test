@@ -44,7 +44,7 @@ nav ul li a {
     color: white;
     padding: 5px 13px;
     transition: color 0.3s;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 nav ul li a:hover {  
@@ -83,23 +83,15 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #f8d20f;
 }
 
 .hero-title {
     font-size: 68px;
     font-weight: bold;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
     margin: 0;
-    padding-bottom: 20px;
-}
-
-.hero-services {
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
-}
-
-.hero-gallery {
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg3.png') no-repeat center center/cover;
+    padding-bottom: 0px;
+    color: #f5f3f5;;
 }
 
 .overlay {
@@ -149,76 +141,13 @@ nav ul li a:hover {
     background: #ddd;
 }
 
-/* * SERVICES AND PRICELIST * */
-.services-container {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    padding: 50px 20px;
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .services-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .service-box {
-        width: 90%;
-    }
-}
-
-.service-box {
-    background: #0c3b7a;
-    color: white;
-    width: 400px;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    margin-top: 0px;
-    margin-bottom: 100px
-}
-
-.service-box:hover {
-    transform: translateY(-5px);
-}
-
-.service-header {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #aac2ff;
-    color: black;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 20px;
-    min-width: 60%;
-    text-align: center;
-}
-
-.service-content h3 {
-    font-size: 22px;
-    margin: 10px 0;
-}
-
-.service-content p {
-    font-size: 18px;
-    margin: 5px 0;
-}
 
 /* * SERVICES* */
 #services {
     text-align: center;
-    padding: 60px 20px;
-    background-color: #fff;
+    padding: 80px 20px;
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/b4.png') no-repeat center center/cover;
+    background-attachment: fixed;
 }
 
 .services-header2 {
@@ -226,7 +155,7 @@ nav ul li a:hover {
 }
 
 .services-header2 h2 {
-    font-size: 32px;
+    font-size: 35px;
     font-weight: bold;
     margin-top: 10px;
     color: #111;
@@ -234,9 +163,9 @@ nav ul li a:hover {
 
 .services-title {
     text-align: center;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
-    color: #0f75f8;
+    color: #0c3b7a;
     margin-bottom: 20px;
     margin-top: 40px;
     text-shadow: 2px 2px 10px rgb(0 0 0 / 3%);
@@ -271,7 +200,8 @@ nav ul li a:hover {
 }
 
 .service-text2 {
-    padding: 15px;
+    padding: 10px;
+    margin-bottom: 10px
 }
 
 .service-text2 h3 {
@@ -282,88 +212,302 @@ nav ul li a:hover {
 
 .service-text2 p {
     font-size: 14px;
+    margin: 5px;
     color: #555;
 }
 
+/* * SERVICES button* */
+.book-now-link {
+    font-size: 14px;
+    font-weight: bold;
+    color: #004aad;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    padding-left: 110px;
+}
+
+.book-now-link:hover {
+    color: #002766;
+    text-decoration: underline;
+}
+
 /* * GALLERY * */
-.gallery-slider {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f5f5f5;
+#gallery {
+    text-align: center;
+    padding: 70px;
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 50%;
+}
+
+.slide {
+    flex: 0 0 100%;
     text-align: center;
 }
 
-.gallery-slider .slider-container {
-    position: relative;
-    max-width: 80%;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background: #fff;
+.slide img {
+    width: 100%;
+    height: auto;
 }
 
-.gallery-slider .slides {
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/* Left Button Fix */
+.prev {
+    left: 5px;
+}
+
+/* Right Button */
+.next {
+    right: 5px;
+}
+
+/* Hover Effect */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/*footer*/
+.container {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.gallery-slider .slide {
-    min-width: 100%;
-    box-sizing: border-box;
+.footer {
+    background-color: #0c3b7a;
+    color: #f5f3f5;
+    padding: 50px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    max-width: 300px;
+}
+
+.footer-logo img {
+    max-width: 100%;
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.footer-info {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links a {
+    color: #f5f3f5;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+}
+
+.social-media a {
+    margin-left: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;    
+    border-top: 1px #0c3b7a;
+    font-size: 12px;
+    margin-top: auto; 
+}
+
+/* Indicator Dots */
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #0f75f8;
+}
+
+/* Terms and Condition */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 69%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Modal Content */
+.modal-content {
+    background: #f5f3f5;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    height: 550px;
+    border-radius: 10px;
+    text-align: justify;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+    background: white;
+    padding: 2px 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+/* Navigation Buttons */
+.modal-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
     padding: 20px;
 }
 
-.gallery-slider .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+.form-container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.gallery-slider .gallery img {
-    width: calc(33.33% - 10px);
-    max-width: 150px;
+label, h4 {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    transition: transform 0.3s;
+    box-sizing: border-box;
 }
 
-.gallery-slider .gallery img:hover {
-    transform: scale(1.1);
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .gallery-slider .gallery img {
-        width: calc(50% - 10px);
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-slider .gallery img {
-        width: calc(100% - 10px);
-    }
-}
-
-.gallery-slider .navigation {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-.gallery-slider .navigation button {
-    padding: 10px 15px;
-    border: none;
-    background: #007bff;
+button {
+    background-color: #0c3b7a;
     color: white;
+    border: none;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
-    transition: background 0.3s;
+    padding: 10px 20px;
 }
 
-.gallery-slider .navigation button:hover {
-    background: #0056b3;
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #002766;
 }
