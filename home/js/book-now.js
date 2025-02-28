@@ -22,29 +22,13 @@ createApp({
         const agreeToTerms = ref(false);
         const showConfirmation = ref(false);  // <== ADDED
         
-        const services = {
-            Cleaning: {
-                "Deep Clean": 350,
-                "Sole Unyellowing": 750
-            },
-            Restoration: {
-                "Full Repaint": 1200,
-                "Full Outsole Reglue": 1200,
-                "Full Midsole Reglue": 1500,
-                "Sole Replacement": 3500,
-                "Sole Stitch": 300,
-                "Partial Repaint": 300,
-                "Partial Reglue": 400
-            }
-        };
-
         const serviceOptions = ref([]);
         
         const goBack = () => {
             if (window.history.length > 1) {
-                window.history.back();
+                window.history.back();  // Go to the previous page if possible
             } else {
-                window.location.href = "index.html"; // Fallback if no history
+                window.location.href = "index.html";  // Redirect to home page if no history
             }
         };
         
@@ -138,8 +122,10 @@ createApp({
             updateServiceNames,
             calculateTotal,
             submitForm,
-            confirmBooking,  // <== ADDED
-            showConfirmation // <== ADDED
+            confirmBooking,
+            showConfirmation,
+            goBack  // <== ADD THIS
         };
+
     }
 }).mount("#app");
