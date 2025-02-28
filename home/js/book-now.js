@@ -20,6 +20,7 @@ createApp({
         });
         const message = ref("");
         const agreeToTerms = ref(false);
+        const showConfirmation = ref(false);  // <== ADDED
         
         const services = {
             Cleaning: {
@@ -39,11 +40,14 @@ createApp({
 
         const serviceOptions = ref([]);
         
-        function goBack() {
-            window.history.back();
-            
-        }
-
+        const goBack = () => {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html"; // Fallback if no history
+            }
+        };
+        
         function updateServiceNames() {
             if (serviceType.value === "Cleaning") {
                 serviceOptions.value = ["Deep Clean", "Sole Unyellowing"];
@@ -56,7 +60,7 @@ createApp({
                     "Sole Stitch",
                     "Partial Repaint",
                     "Partial Reglue"
-                    ];
+                ];
             } else {
                 serviceOptions.value = [];
             }
@@ -68,7 +72,6 @@ createApp({
                     "Deep Clean": 350,
                     "Sole Unyellowing": 750                    
                 },
-                
                 Restoration: {
                     "Full Repaint": 1200,
                     "Full Outsole Reglue": 1200,
@@ -81,11 +84,9 @@ createApp({
             };
             
             if (serviceType.value && serviceName.value && prices[serviceType.value] && prices[serviceType.value][serviceName.value]) {
-                totalPayment.value = prices[serviceType.value][serviceName.value] * numItems.value;
+                totalPayment.value = `₱${prices[serviceType.value][serviceName.value] * numItems.value}`;
             }            
         }
-
-
 
         function resetForm() {
             firstName.value = "";
@@ -96,7 +97,7 @@ createApp({
             serviceType.value = "";
             serviceName.value = "";
             numItems.value = 1;
-            totalPayment.value = "";
+            totalPayment.value = "₱0";
             paymentMethod.value = "";
             deliveryType.value = "";
             address.street = "";
@@ -108,13 +109,17 @@ createApp({
         }
 
         function submitForm() {
-            alert("Booking submitted successfully!");
+            showConfirmation.value = true;  // Show the confirmation modal
+        }
+
+        function confirmBooking() {
+            alert("Booking confirmed successfully!");
             resetForm();
-            window.location.href = "index.html";
+            showConfirmation.value = false;
+            window.location.href = "index.html"; 
         }
 
         return {
-            goBack,
             firstName,
             lastName,
             contactNumber,
@@ -132,7 +137,9 @@ createApp({
             serviceOptions,
             updateServiceNames,
             calculateTotal,
-            submitForm
+            submitForm,
+            confirmBooking,  // <== ADDED
+            showConfirmation // <== ADDED
         };
     }
 }).mount("#app");
