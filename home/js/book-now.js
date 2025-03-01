@@ -20,15 +20,15 @@ createApp({
         });
         const message = ref("");
         const agreeToTerms = ref(false);
-        const showConfirmation = ref(false);  // <== ADDED
+        const showConfirmation = ref(false); 
         
         const serviceOptions = ref([]);
         
         const goBack = () => {
             if (window.history.length > 1) {
-                window.history.back();  // Go to the previous page if possible
+                window.history.back(); 
             } else {
-                window.location.href = "index.html";  // Redirect to home page if no history
+                window.location.href = "index.html";  
             }
         };
         
@@ -71,6 +71,29 @@ createApp({
                 totalPayment.value = `₱${prices[serviceType.value][serviceName.value] * numItems.value}`;
             }            
         }
+        
+        function submitForm() {
+            showConfirmation.value = true;
+        }
+
+        function confirmBooking() {
+            document.querySelector('.modal h3').textContent = "Booking Confirmed!";
+            document.querySelector('.modal p').innerHTML = "<p class='confirmation-message'>Your booking has been confirmed successfully!</p>"; // Added class here
+            document.querySelector('.modal-buttons').innerHTML = '<button class="close-modal-button">Close</button>';
+
+            document.querySelector('.close-modal-button').addEventListener('click', () => {
+                closeModal();
+            });
+
+            showConfirmation.value = true;
+        }
+        
+        
+        function closeModal() {
+            resetForm();
+            showConfirmation.value = false;
+            window.location.href = "index.html";
+        }
 
         function resetForm() {
             firstName.value = "";
@@ -92,16 +115,7 @@ createApp({
             serviceOptions.value = [];
         }
 
-        function submitForm() {
-            showConfirmation.value = true;  // Show the confirmation modal
-        }
-
-        function confirmBooking() {
-            alert("Booking confirmed successfully!");
-            resetForm();
-            showConfirmation.value = false;
-            window.location.href = "index.html"; 
-        }
+        
 
         return {
             firstName,
@@ -124,7 +138,8 @@ createApp({
             submitForm,
             confirmBooking,
             showConfirmation,
-            goBack  // <== ADD THIS
+            goBack,
+            closeModal,
         };
 
     }

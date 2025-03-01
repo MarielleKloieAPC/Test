@@ -1,14 +1,64 @@
+.booking-header {
+    background: #0c3b7a;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.back-icon {
+    position: absolute;
+    left: 50px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.back-icon img {
+    width: 50px;
+    height: auto;
+}
+
+.back-icon:hover {
+    transform: scale(1.1);
+}
+
+
+.header-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
 body, html {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+    width: -webkit-fill-available;
+    height: auto;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
     width: 100%;
     height: 100%;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f5f3f5;
-    background-image: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/booking-bg.png');
-    background-position: top, bottom;
-    background-size: cover, contain;
-    background-repeat: no-repeat, no-repeat;
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/booking-bg.png') no-repeat center center/cover;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    color: white;
 }
 
 .modal-overlay {
@@ -30,19 +80,34 @@ body, html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
+.confirmation-message {
+    font-size: 13px;
+    text-align: center;
+}
+
+.modal p {
+    font-size: 13px;
+    text-align: left;
+}
+
+
 .modal-buttons {
     display: flex;
-    justify-content: center; /* Centers buttons horizontally */
-    gap: 10px; /* Adds space between buttons */
-    margin-top: 15px; /* Adds spacing above buttons */
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 15px;
+    align-self: center;
 }
 
 .modal-buttons button {
     padding: 10px 20px;
     border: none;
+    width: 15vw;
     background-color: #0c3b7a;
     color: white;
     font-size: 16px;
@@ -56,7 +121,7 @@ body, html {
 }
 
 .modal-buttons button:nth-child(2) {
-    background-color: #dc3545; /* Red color for cancel */
+    background-color: #dc3545;
 }
 
 .modal-buttons button:nth-child(2):hover {
@@ -70,6 +135,7 @@ body, html {
 }
 
 .form-container {
+    margin-top: 80px;
     width: 100%;
     max-width: 800px;
     background: white;
@@ -88,7 +154,7 @@ body, html {
 
 .form-group {
     flex: 1;
-    min-width: calc(50% - 10px); /* Two columns layout */
+    min-width: calc(50% - 10px);
 }
 
 @media (max-width: 600px) {
@@ -103,7 +169,7 @@ body, html {
 
 /* Terms & Conditions Box */
 .terms-box-container {
-    width: 100%;
+    width: 97.5%;
     margin-top: 10px;
 }
 
@@ -122,8 +188,8 @@ body, html {
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     padding: 10px;
-    max-height: 150px; /* Prevents terms from taking too much space */
-    overflow-y: auto; /* Scrollable terms */
+    max-height: 150px; 
+    overflow-y: auto; 
 }
 
 .terms-box p, .modal p {
@@ -147,37 +213,18 @@ body, html {
     width: 16px;
     height: 16px;
     cursor: pointer;
+    margin: 0;
 }
 
-.back-arrow {
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    top: 30px;  /* Adjust as needed */
-    left: 30px; /* Adjust as needed */
-    display: inline-block;
-    cursor: pointer;
-    z-index: 1000; /* Ensures it's above other elements */
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-}
-
-.arrow-icon path {
-    transition: stroke 1s ease;
-}
-
-.back-arrow:hover .arrow-icon path {
-    stroke: white;
+.terms-container label {
+    margin: 0; 
+    align-self: center; 
 }
 
 h2 {
     text-align: center;
     color: #0c3b7a;
-    margin-top: 0px;
+    margin-top: 25px;
 }
 
 label, h4, .form-label {
@@ -196,11 +243,22 @@ input, select {
     box-sizing: border-box;
 }
 
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 3px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical; 
+    min-height: 100px;
+}
+
 button {
     width: 50%;
     background: #0c3b7a;
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     margin-top: 15px;
     cursor: pointer;
