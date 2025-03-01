@@ -166,21 +166,9 @@ body::before {
 }
 
 /* Terms & Conditions Box */
-.terms-container {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
+.terms-box-container {
+    width: 97.5%;
     margin-top: 10px;
-}
-
-.terms-container input[type="checkbox"] {
-    margin: 0;
-    vertical-align: middle;
-}
-
-.terms-container label {
-    margin: 0;
-    vertical-align: middle;
 }
 
 .terms-box-container h3 {
