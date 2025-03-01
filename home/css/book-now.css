@@ -87,7 +87,7 @@ body::before {
 
 .confirmation-message {
     font-size: 13px;
-    text-align: center;
+    margin: 10px 0;
 }
 
 .modal p {
@@ -95,26 +95,23 @@ body::before {
     text-align: left;
 }
 
-
 .modal-buttons {
     display: flex;
-    justify-content: center; 
-    gap: 10px; 
+    justify-content: center;
+    gap: 10px;
     margin-top: 15px;
-    align-self: center;
+    flex-direction: row; 
 }
 
 .modal-buttons button {
-    padding: 8px 12px;
+    padding: 10px 20px;
     border: none;
-    width: auto;
     background-color: #0c3b7a;
     color: white;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    white-space: nowrap;
 }
 
 .modal-buttons button:hover {
@@ -217,11 +214,6 @@ body::before {
     margin: 0;
 }
 
-.terms-container label {
-    margin: 0; 
-    align-self: center; 
-}
-
 h2 {
     text-align: center;
     color: #0c3b7a;
@@ -252,7 +244,7 @@ textarea {
     border-radius: 5px;
     box-sizing: border-box;
     resize: vertical; 
-    min-height: 100px;
+    min-height: 100px; 
 }
 
 button {
