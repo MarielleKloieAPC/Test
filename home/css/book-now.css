@@ -207,6 +207,16 @@ body::before {
     margin-top: 10px;
 }
 
+.terms-container input[type="checkbox"] {
+    margin: 0px;
+    vertical-align: middle;
+}
+
+.terms-container label {
+    margin: 0px;
+    vertical-align: middle;
+}
+
 .terms-container input {
     width: 16px;
     height: 16px;
@@ -243,8 +253,8 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    resize: vertical; 
-    min-height: 100px;
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Set a minimum height */
 }
 
 button {
