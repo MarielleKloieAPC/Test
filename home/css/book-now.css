@@ -207,16 +207,6 @@ body::before {
     margin-top: 10px;
 }
 
-.terms-container input[type="checkbox"] {
-    margin: 0px;
-    vertical-align: middle;
-}
-
-.terms-container label {
-    margin: 0px;
-    vertical-align: middle;
-}
-
 .terms-container input {
     width: 16px;
     height: 16px;
